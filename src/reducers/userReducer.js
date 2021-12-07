@@ -10,3 +10,4 @@ const userReducer= (state={user:{},submitted_user:{}},action) => {
       return state;
     }
 }
+export default userReducer;
