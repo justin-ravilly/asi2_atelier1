@@ -4,6 +4,9 @@ const userReducer= (state={user:{},submitted_user:{}},action) => {
             return {user:action.user,submitted_user:state.submitted_user};
         case 'SUBMIT_USER_ACTION':  
             console.log("User to Submit");
+            //Stockage dans un fichier Json
+            const fs = require('fs');
+            //jsonReader('../sources/utilisateur_storage.json');
             console.log(action.user);
             return {user:state.user,submitted_user:action.user};
     default:
