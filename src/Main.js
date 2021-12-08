@@ -8,6 +8,7 @@ import {Provider} from 'react-redux';
 import { BrowserRouter as Router,Routes,Route,NavLink} from "react-router-dom";
 import {UserFormLog} from './components/User_form_Login/UserFormLog';
 import {Home} from './components/Home/Home';
+import {Activity} from './components/Activity/Activity'; 
 
 
 //create store to exchange data
@@ -57,6 +58,7 @@ function submitUserHandler(data){
         <Route path="/signin" element={<UserForm/>}/>
         <Route path="/login" element={<UserFormLog/>}/>
         <Route path="/" element={<Home/>}/>
+        <Route path="/activity" element={<Activity/>}/>
         </Routes>
         {/*<Grid divided='vertically'>
           <Grid.Row columns={3}>
@@ -78,10 +80,8 @@ function submitUserHandler(data){
               </User>
           </Grid.Column>
           </Grid.Row>
-    </Grid>*/}
+      </Grid>*/}
       </Router>
       </Provider>
     );
-  
-
 }

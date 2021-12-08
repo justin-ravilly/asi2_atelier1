@@ -2,7 +2,7 @@ import React, { useState,Component } from 'react';
 import { Form, Header,Button,Container } from 'semantic-ui-react';
 import { useDispatch, useSelector } from "react-redux";
 import {updateUser,submitUser} from '../../actions';
-import { render } from '@testing-library/react';
+import { useNavigate } from "react-router-dom";
 
 export const UserFormLog = (props) =>{
        const [currentUser,setCurrentUser]= useState({
@@ -11,6 +11,8 @@ export const UserFormLog = (props) =>{
                                         });
 
         const dispatch = useDispatch();
+        const navigate = useNavigate();
+
         function processInput(event, { valueData }){
             const target = event.currentTarget;
             const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -23,6 +25,7 @@ export const UserFormLog = (props) =>{
     
         function submitOrder(data){
             dispatch(submitUser(currentUser));
+            navigate('/activity');
         }
 
     return (
