@@ -7,7 +7,7 @@ export const Home =(props) =>{
 
   return (
     <Container>
-      <h1>This house is not my home</h1>
-      </Container>
+      <h1>Welcome</h1>
+    </Container>
   );
 }

@@ -7,7 +7,7 @@ export const Activity =(props) =>{
   
     return (
         <Container>
-        <h1>Welcome</h1>
+        <h1>Welcome to activity Mister Anderson</h1>
         </Container>
     );
 }
