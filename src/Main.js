@@ -30,9 +30,10 @@ export const Main =(props) =>{
         });
     };
 
-function submitUserHandler(data){
-    console.log("user to submit"+data);
-};
+  
+    function submitUserHandler(data){
+      console.log("user to submit"+data);
+    };
                                   
     return (
         <Provider store={store} >
@@ -48,7 +49,7 @@ function submitUserHandler(data){
           <NavLink to="/sellCard" >Sell</NavLink>
         </Menu.Item>
         <Menu.Item>
-          <NavLink to="/activity" >Play</NavLink>
+          <NavLink to="/play" >Play</NavLink>
         </Menu.Item>
         <Menu.Item name='userNameDisplay'>
           <User>
@@ -63,7 +64,7 @@ function submitUserHandler(data){
         <Route path="/" element={<Home/>}/>
         <Route path="/buyCard" element={<Activity/>}/>
         <Route path="/sellCard" element={<Activity/>}/>
-        <Route path="/activity" element={<Activity/>}/>
+        <Route path="/play" element={<Home/>}/>
         </Routes>
       </Router>
       </Provider>
