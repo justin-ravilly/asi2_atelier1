@@ -6,19 +6,18 @@ import { useNavigate } from "react-router-dom";
 
 export const UserFormLog = (props) =>{
        const [currentUser,setCurrentUser]= useState({
-                                            login:"",
-                                            pwd:"",
-                                        });
+                                                        surname:"",
+                                                        lastname:"",
+                                                        login:"",
+                                                        pwd:"",
+                                                        money:0});
 
         const dispatch = useDispatch();
         const navigate = useNavigate();
-        let [dataUser,setDataUser]= useState({
-            name:""
-        });
-
+        
         function processInput(event, { valueData }){
             const target = event.currentTarget;
-            const value = target.type === 'checkbox' ? target.checked : target.value;
+            const value = target.value;
             const name = target.name;
             let currentVal=currentUser;
             setCurrentUser({...currentUser, [name]: value});
@@ -32,7 +31,6 @@ export const UserFormLog = (props) =>{
         };
 
         function connectToServer() {
-            {/*Recupérer la liste des users du serveur*/}
             fetch('https://asi2-backend-market.herokuapp.com/auth?login='+currentUser.login+'&pwd='+currentUser.pwd,{
                 method: 'POST',
                 headers: {
@@ -49,8 +47,12 @@ export const UserFormLog = (props) =>{
                 console.log("Connexion réussie")
                 fetch('https://asi2-backend-market.herokuapp.com/user/'+data)
                 .then(response => response.json())
-                .then(data => {console.log(data.login)})
-                navigate('/activity')
+                .then(data => {
+                    let currentVal=currentUser;
+                    console.log(currentVal);
+                    dispatch(updateUser(currentVal));
+                })
+                .then(navigate("/"));
             }});
         };  
 
@@ -61,12 +63,11 @@ export const UserFormLog = (props) =>{
                 User Log in
             </Header>
             <Form.Field>
-                <Form.Input label="Login" placeholder="Login" onChange={processInput}  name="login" value={currentUser.login}/>
+                <Form.Input label="Login" placeholder="Login" name="login" onChange={processInput} value={currentUser.login}/>
             </Form.Field>
             <Form.Field>
-                <Form.Input type="password" label="Pwd" placeholder="" onChange={processInput}  name="pwd" value={currentUser.pwd}/>
+                <Form.Input type="password" label="Pwd" placeholder=""  name="pwd" onChange={processInput} value={currentUser.pwd}/>
             </Form.Field>
-            <Button type='submit' onClick={submitOrder}>Login</Button>
             <Button type='submit' onClick={connectToServer}>Connect to the server</Button>
         </Form>
         </Container>
