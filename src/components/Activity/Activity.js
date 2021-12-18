@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import '../../lib/Semantic-UI-CSS-master/semantic.min.css';
-
+import '../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css';
 import {LeftSide} from '../Card/LeftSide/LeftSide';
 import {RightSide} from '../Card/RightSide/RightSide';
 import { Container } from 'semantic-ui-react';
@@ -28,7 +28,6 @@ export const Activity =(props) =>{
             return {};
     }
     return (
-        <Container>
         <div class="ui grid">
             <div class="ten wide column">
                  <h3 class="ui aligned header"> My Card List</h3>
@@ -45,6 +44,5 @@ export const Activity =(props) =>{
             </div>
             
             </div>
-        </Container>
     );
 }
