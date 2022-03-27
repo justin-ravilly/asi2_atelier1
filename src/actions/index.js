@@ -6,25 +6,34 @@ export const updateUser =
                        };
               }
 
-export const submitUser =
-    (user) => {
-                return { 
-                        type: 'SUBMIT_USER_ACTION', 
-                        user: user 
-                       };
-              }
-export const setSelectedRobot=(robot_obj)=>{
+export const updateCardList =
+    (cardList) => {
                 return {
-                    type: 'UPDATE_SELECTED_ROBOT',
-                    obj:robot_obj
-                    
+                    type : 'UPDATE_CARD_LIST',
+                    cardList: cardList
                 };
-            }
-            
-            
-export const setSelectedPart=(part_obj)=>{
+    };
+
+export const updateSelectedCard =
+    (card) => {
                 return {
-                    type: 'UPDATE_SELECTED_PART',
-                    obj:part_obj
+                    type : 'UPDATE_SELECTED_CARD',
+                    card: card
                 };
-            }
+    };
+
+export const updateHp =
+    (players_hp) => {
+                return {
+                    type : 'UPDATE_PLAYERS_HP',
+                    players_hp: players_hp
+                };
+    };
+
+export const updateGameData =
+    (gameData) => {
+                return {
+                    type : 'UPDATE_GAME_DATA',
+                    gameData: gameData
+                };
+    };
